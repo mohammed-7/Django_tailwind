@@ -7,14 +7,23 @@ All indexs.
 {% block content %}
 
 <h1>All indexes are here.!.</h1>
+
+<div class="grid grid-cols-3 gap-4 m-4">
 {% for cars in cars %}
 
-    <div class="car-item">
-        <img src="{{cars.image.url}}" alt="">
-        test
+    <div class="bg-blue-500 p-5 rounded">
+        <img class="rounded shadow-lg" src="{{cars.image.url}}" alt="{{cars.name}}">
+        <h3>{{cars.name}}</h3>
+        <a href="#">
+            <button 
+            type="button"
+            class="inline-flex items-center w-[100%] justify-center px-4 py-2 border-transparent text-sm font-medium rounded-md text-white bg-orange-600 hover:bg-grey-500 focus:outline-none focus:ring-2 focus:ring-offset-2
+            focus:ring-orange-500">
+                {{cars.type}} - {{cars.id}}
+            </button>
+        </a>
     </div>
-
 {% endfor %}
-
+</div>
 {% endblock %}
 
