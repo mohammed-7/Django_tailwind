@@ -7,9 +7,12 @@ All indexs.
 {% block content %}
 
 <h1>All indexes are here.!.</h1>
-{% for car in cars %}
+{% for cars in cars %}
 
-    
+    <div class="car-item">
+        <img src="{{cars.image.url}}" alt="">
+        test
+    </div>
 
 {% endfor %}
 
