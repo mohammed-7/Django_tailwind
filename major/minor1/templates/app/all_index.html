@@ -14,7 +14,7 @@ All indexs.
     <div class="bg-blue-500 p-5 rounded">
         <img class="rounded shadow-lg" src="{{cars.image.url}}" alt="{{cars.name}}">
         <h3>{{cars.name}}</h3>
-        <a href="#">
+        <a href="{% url 'car_detail' cars.id %}">
             <button 
             type="button"
             class="inline-flex items-center w-[100%] justify-center px-4 py-2 border-transparent text-sm font-medium rounded-md text-white bg-orange-600 hover:bg-grey-500 focus:outline-none focus:ring-2 focus:ring-offset-2

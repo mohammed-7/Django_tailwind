@@ -13,6 +13,7 @@ class CarVariety(models.Model):
     image = models.ImageField(upload_to = 'minor1/')
     date_added = models.DateField(default=timezone.now)
     type = models.CharField(max_length=2,choices=CAR_TYPE_CHOICE,default='Lx')
+    description = models.TextField(default='')
     
     def __str__(self):
         return self.name
