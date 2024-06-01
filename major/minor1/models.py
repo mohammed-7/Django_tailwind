@@ -31,7 +31,7 @@ class CarReview(models.Model):
         return f'{self.user.username} review for {self.cars.name}'
 
 # Many to many
-class Store(model.Model):
+class Store(models.Model):
     name = models.CharField(max_length=100)
     location = models.CharField(max_length=100)
     car_varieties = models.ManyToManyField(CarVariety, related_name='stores')
@@ -43,7 +43,7 @@ class Store(model.Model):
 class CarCertificate(models.Model):
     cars = models.OneToOneField(CarVariety,on_delete=models.CASCADE,related_name='certificate')
     certificate_number = models.CharField(max_length=100)
-    issue_date = model.models.DateTimeField(default=timezone.now)
+    issued_date = models.DateTimeField(default=timezone.now)
     valid_untill = models.DateTimeField()
     
     def __str__(self):
