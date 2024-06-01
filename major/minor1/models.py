@@ -21,4 +21,31 @@ class CarVariety(models.Model):
     
 # one to many 
 class CarReview(models.Model):
-    cars = models.ForeignKey(CarVariety, on_delete=models.CASCADE)
+    cars = models.ForeignKey(CarVariety, on_delete=models.CASCADE,related_name='reviews')
+    user = models.ForeignKey(User,on_delete=models.CASCADE)
+    rating = models.IntegerField()
+    comment = models.TextField()
+    date_added = models.DateTimeField(default= timezone.now)
+    
+    def __str__(self):
+        return f'{self.user.username} review for {self.cars.name}'
+
+# Many to many
+class Store(model.Model):
+    name = models.CharField(max_length=100)
+    location = models.CharField(max_length=100)
+    car_varieties = models.ManyToManyField(CarVariety, related_name='stores')
+    
+    def __str__(self):
+        return self.name
+    
+#one to one 
+class CarCertificate(models.Model):
+    cars = models.OneToOneField(CarVariety,on_delete=models.CASCADE,related_name='certificate')
+    certificate_number = models.CharField(max_length=100)
+    issue_date = model.models.DateTimeField(default=timezone.now)
+    valid_untill = models.DateTimeField()
+    
+    def __str__(self):
+        return f'Certificate for{self.name.cars}'
+    
